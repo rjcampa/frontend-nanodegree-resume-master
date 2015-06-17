@@ -137,12 +137,7 @@ projects.display = function(){
   }
 };
 
-var inName = function(name) {
-  splitname = name.split(" ");
-  capSecond = (splitname[1]);
-  capSecond = capSecond.toUpperCase();
-  return (splitname[0].slice(0,1).toUpperCase() + " " + capSecond);
-};
+
 
 education.display = function(){
   for (schools in education.schools) {
@@ -205,4 +200,9 @@ bio.personalInfo();
 education.display();
 $("#main").append(internationalizeButton);
 $("#mapDiv").append(googleMap);
-
+var inName = function(name) {
+  name = name.trim().split(" ");
+  name[1] = name[1].toUpperCase();
+  name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
+  return name[0] + " " + name[1];
+};
